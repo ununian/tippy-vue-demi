@@ -6,7 +6,7 @@ Here I show you how to test VueDemi for Vue 2 and Vue 3 using [Vitest](https://v
 
 ### Project Structure
 
-- `packages/my-component`: A Component created using VueDemi
+- `packages/tippy-vue-demi`: A Component created using VueDemi
 - `packages/test-vue-2`: Running tests on Vue `<=2.6`
 - `packages/test-vue-3`: Running tests on Vue `>3.0`
 
@@ -20,7 +20,7 @@ pnpm install # install all dependencies
 
 pnpm test-v2 # run tests for Vue <=2.6
 pnpm test-v3 # run tests for Vue >=3.0
-pnpm build # build my-component (Files built on `packages/my-component/dist/` are created)
+pnpm build # build tippy-vue-demi (Files built on `packages/tippy-vue-demi/dist/` are created)
 ```
 
 ## License

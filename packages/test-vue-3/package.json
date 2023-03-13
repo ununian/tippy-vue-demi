@@ -10,7 +10,7 @@
     "@vitejs/plugin-vue": "^3.1.2",
     "@vue/test-utils": "^2.1.0",
     "happy-dom": "^7.5.6",
-    "my-component": "workspace:*",
+    "tippy-vue-demi": "workspace:*",
     "tsconfig": "workspace:*",
     "vue": "^3.2.41"
   }

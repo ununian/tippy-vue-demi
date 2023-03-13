@@ -32,10 +32,49 @@ importers:
       vite: 3.1.7
       vitest: 0.24.1
 
-  packages/my-component:
+  packages/test-vue-2:
+    specifiers:
+      '@vue/composition-api': ^1.7.1
+      '@vue/test-utils': ^1.3.0
+      jsdom: ^20.0.1
+      tippy-vue-demi: workspace:*
+      tsconfig: workspace:*
+      vite-plugin-vue2: ^2.0.2
+      vue: 2.6.14
+      vue-demi: ^0.13.11
+    devDependencies:
+      '@vue/composition-api': 1.7.1_vue@2.6.14
+      '@vue/test-utils': 1.3.0_sbs6or2oam5i4s4vmfp4rzwdnq
+      jsdom: 20.0.1
+      tippy-vue-demi: link:../tippy-vue-demi
+      tsconfig: link:../tsconfig
+      vite-plugin-vue2: 2.0.2_wzrmf66kf2h64pfwvrgrpwb5ty
+      vue: 2.6.14
+      vue-demi: 0.13.11_6dlujnoejfirpqflnwh7rm2qe4
+
+  packages/test-vue-3:
     specifiers:
       '@vitejs/plugin-vue': ^3.1.2
+      '@vue/test-utils': ^2.1.0
+      happy-dom: ^7.5.6
+      tippy-vue-demi: workspace:*
+      tsconfig: workspace:*
+      vue: ^3.2.41
+    devDependencies:
+      '@vitejs/plugin-vue': 3.1.2_vite@3.1.7+vue@3.2.41
+      '@vue/test-utils': 2.1.0_vue@3.2.41
+      happy-dom: 7.5.6
+      tippy-vue-demi: link:../tippy-vue-demi
+      tsconfig: link:../tsconfig
+      vue: 3.2.41
+
+  packages/tippy-vue-demi:
+    specifiers:
+      '@types/lodash-es': ^4.17.6
+      '@vitejs/plugin-vue': ^3.1.2
       '@vue/composition-api': ^1.0.0-rc.1
+      lodash-es: ^4.17.21
+      tippy.js: ^6.3.7
       tsconfig: workspace:*
       vite-plugin-dts: ^1.6.6
       vue: ^3.2.41
@@ -43,47 +82,16 @@ importers:
       vue2: npm:vue@2.6.14
     dependencies:
       '@vue/composition-api': 1.7.1_vue@3.2.41
-      vue-demi: 0.13.11_vue@3.2.41
+      lodash-es: 4.17.21
+      tippy.js: 6.3.7
+      vue-demi: 0.13.11_dyjqe6a6hnb4vyzxfuk6bzpiny
     devDependencies:
+      '@types/lodash-es': 4.17.6
       '@vitejs/plugin-vue': 3.1.2_vite@3.1.7+vue@3.2.41
       tsconfig: link:../tsconfig
       vite-plugin-dts: 1.6.6_vite@3.1.7
       vue: 3.2.41
       vue2: /vue/2.6.14
-
-  packages/test-vue-2:
-    specifiers:
-      '@vue/composition-api': ^1.7.1
-      '@vue/test-utils': ^1.3.0
-      jsdom: ^20.0.1
-      my-component: workspace:*
-      tsconfig: workspace:*
-      vite-plugin-vue2: ^2.0.2
-      vue: 2.6.14
-    devDependencies:
-      '@vue/composition-api': 1.7.1_vue@2.6.14
-      '@vue/test-utils': 1.3.0_sbs6or2oam5i4s4vmfp4rzwdnq
-      jsdom: 20.0.1
-      my-component: link:../my-component
-      tsconfig: link:../tsconfig
-      vite-plugin-vue2: 2.0.2_wzrmf66kf2h64pfwvrgrpwb5ty
-      vue: 2.6.14
-
-  packages/test-vue-3:
-    specifiers:
-      '@vitejs/plugin-vue': ^3.1.2
-      '@vue/test-utils': ^2.1.0
-      happy-dom: ^7.5.6
-      my-component: workspace:*
-      tsconfig: workspace:*
-      vue: ^3.2.41
-    devDependencies:
-      '@vitejs/plugin-vue': 3.1.2_vite@3.1.7+vue@3.2.41
-      '@vue/test-utils': 2.1.0_vue@3.2.41
-      happy-dom: 7.5.6
-      my-component: link:../my-component
-      tsconfig: link:../tsconfig
-      vue: 3.2.41
 
   packages/tsconfig:
     specifiers: {}
@@ -714,6 +722,10 @@ packages:
       fastq: 1.13.0
     dev: true
 
+  /@popperjs/core/2.11.6:
+    resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
+    dev: false
+
   /@rollup/pluginutils/4.2.1:
     resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
     engines: {node: '>= 8.0.0'}
@@ -793,6 +805,16 @@ packages:
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
+    dev: true
+
+  /@types/lodash-es/4.17.6:
+    resolution: {integrity: sha512-R+zTeVUKDdfoRxpAryaQNRKk3105Rrgx2CFRClIgRGaqDTdjsm8h6IYA8ir584W3ePzkZfst5xIgDwYrlh9HLg==}
+    dependencies:
+      '@types/lodash': 4.14.191
+    dev: true
+
+  /@types/lodash/4.14.191:
+    resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
     dev: true
 
   /@types/node/10.17.60:
@@ -3102,6 +3124,10 @@ packages:
       p-locate: 5.0.0
     dev: true
 
+  /lodash-es/4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    dev: false
+
   /lodash.get/4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
     dev: true
@@ -3870,6 +3896,12 @@ packages:
     engines: {node: '>=14.0.0'}
     dev: true
 
+  /tippy.js/6.3.7:
+    resolution: {integrity: sha512-E1d3oP2emgJ9dRQZdf3Kkn0qJgI6ZLpyS5z6ZkY1DF3kaQaBsGZsndEpHwx+eC+tYM41HaSNvNtLx8tU57FzTQ==}
+    dependencies:
+      '@popperjs/core': 2.11.6
+    dev: false
+
   /to-fast-properties/2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
     engines: {node: '>=4'}
@@ -4256,7 +4288,7 @@ packages:
       - terser
     dev: true
 
-  /vue-demi/0.13.11_vue@3.2.41:
+  /vue-demi/0.13.11_6dlujnoejfirpqflnwh7rm2qe4:
     resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==}
     engines: {node: '>=12'}
     hasBin: true
@@ -4268,6 +4300,23 @@ packages:
       '@vue/composition-api':
         optional: true
     dependencies:
+      '@vue/composition-api': 1.7.1_vue@2.6.14
+      vue: 2.6.14
+    dev: true
+
+  /vue-demi/0.13.11_dyjqe6a6hnb4vyzxfuk6bzpiny:
+    resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==}
+    engines: {node: '>=12'}
+    hasBin: true
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      '@vue/composition-api': 1.7.1_vue@3.2.41
       vue: 3.2.41
     dev: false
 

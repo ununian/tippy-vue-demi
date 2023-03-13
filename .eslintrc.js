@@ -10,8 +10,8 @@ module.exports = {
   ],
   rules: {
     'no-unused-vars': ['error', { varsIgnorePattern: '.*', args: 'none' }],
-    'no-restricted-syntax': ['error', 'ObjectPattern > RestElement'],
     '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/ban-types': 'off',
   },
   overrides: [
     {

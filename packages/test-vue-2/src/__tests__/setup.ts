@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueCompositionAPI from '@vue/composition-api';
 import { beforeAll } from 'vitest';
-import { myPlugin } from 'my-component';
+import { myPlugin } from 'tippy-vue-demi';
 
 beforeAll(() => {
   Vue.use(VueCompositionAPI);

@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 import App from '../index.vue';
-import { myPlugin } from 'my-component';
+import { myPlugin } from '../../../tippy-vue-demi/dist';
 
 describe('test vue 3', () => {
   it('check text', () => {

@@ -1,7 +1,11 @@
 <template>
-  <div><MyComponent /><MyPluginComponent /></div>
+  <div>
+    <Tippy content="hello">
+      <button>Hover me</button>
+    </Tippy>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { MyComponent } from 'my-component';
+import { Tippy } from '../../tippy-vue-demi/dist';
 </script>
