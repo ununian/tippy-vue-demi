@@ -7,6 +7,7 @@ import {
   unref,
   reactive,
   PropType,
+  isVue2,
 } from 'vue-demi';
 import { TippyOptions } from '../types';
 import { useTippy } from '../composables';
@@ -177,13 +178,12 @@ const TippyComponent = defineComponent({
     };
   },
   render() {
-    const slot = this.$scopedSlots.default
-      ? this.$scopedSlots.default(this)
-      : [];
+    const slots = isVue2 ? this.$scopedSlots : this.$slots;
+    const slot = slots.default ? slots.default(this) : [];
     return h(
       this.tag as string,
       { ref: 'elem', 'data-v-tippy': '' },
-      this.$scopedSlots.content
+      slots.content
         ? [
             slot,
             h(
@@ -193,7 +193,7 @@ const TippyComponent = defineComponent({
                 style: { display: this.mounted ? 'inherit' : 'none' },
                 class: this.contentClass,
               },
-              this.$scopedSlots.content(this),
+              slots.content(this),
             ),
           ]
         : slot,
