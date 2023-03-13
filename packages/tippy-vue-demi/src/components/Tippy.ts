@@ -179,7 +179,13 @@ const TippyComponent = defineComponent({
   },
   render() {
     const slots = isVue2 ? this.$scopedSlots : this.$slots;
-    const slot = slots.default ? slots.default(this) : [];
+    const expose = {
+      elem: this.elem,
+      contentElem: this.contentElem,
+      mounted: this.mounted,
+      ...this.tippy,
+    };
+    const slot = slots.default ? slots.default(expose) : [];
     return h(
       this.tag as string,
       { ref: 'elem', 'data-v-tippy': '' },
@@ -193,7 +199,7 @@ const TippyComponent = defineComponent({
                 style: { display: this.mounted ? 'inherit' : 'none' },
                 class: this.contentClass,
               },
-              slots.content(this),
+              slots.content(expose),
             ),
           ]
         : slot,
