@@ -17,7 +17,7 @@ export default defineConfig({
       fileName: 'index',
     },
     rollupOptions: {
-      external: ['vue', 'vue-demi'],
+      external: ['vue', 'vue-demi', 'tippy.js', '@vueuse/core', 'lodash-es'],
     },
   },
 });
