@@ -13,6 +13,7 @@ import { TippyOptions } from '../types';
 import { useTippy } from '../composables';
 import tippy from 'tippy.js';
 import h from '../util/h-demi';
+import { templateRef } from '@vueuse/core';
 
 const TippyComponent = defineComponent({
   props: {
@@ -116,7 +117,7 @@ const TippyComponent = defineComponent({
   emits: ['state'],
   setup(props, { slots, emit }) {
     const elem = ref<Element>();
-    const contentElem = ref<Element>();
+    const contentElem = templateRef<HTMLElement>('contentElem');
     const mounted = ref(false);
 
     const getOptions = () => {
@@ -178,14 +179,8 @@ const TippyComponent = defineComponent({
     };
   },
   render() {
-    const slots = isVue2 ? this.$scopedSlots : this.$slots;
-    const expose = {
-      elem: this.elem,
-      contentElem: this.contentElem,
-      mounted: this.mounted,
-      ...this.tippy,
-    };
-    const slot = slots.default ? slots.default(expose) : [];
+    const slots = isVue2 ? (this as any).$scopedSlots : this.$slots;
+    const slot = slots.default ? slots.default() : [];
     return h(
       this.tag as string,
       { ref: 'elem', 'data-v-tippy': '' },
@@ -195,11 +190,11 @@ const TippyComponent = defineComponent({
             h(
               this.contentTag as string,
               {
-                ref: this.contentElem,
+                ref: 'contentElem',
                 style: { display: this.mounted ? 'inherit' : 'none' },
                 class: this.contentClass,
               },
-              slots.content(expose),
+              slots.content(),
             ),
           ]
         : slot,

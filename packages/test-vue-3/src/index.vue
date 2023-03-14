@@ -1,6 +1,7 @@
 <template>
   <div>
-    <Tippy content="hello">
+    <Tippy>
+      <template #content><span>fff</span> </template>
       <button>Hover me</button>
     </Tippy>
   </div>

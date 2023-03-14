@@ -1,12 +1,9 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-import { isVue3, VNode, Vue2 } from 'vue-demi';
+import * as Demi from 'vue-demi';
+import type { VNode } from 'vue-demi';
 
 export const isVNode = (node: Object) => {
-  if (isVue3) {
-    // @ts-ignore
-    const Vue3IsNode = require('vue-demi').isVNode;
-    return Vue3IsNode(node);
+  if (Demi.isVue3) {
+    return Demi.isVNode(node);
   }
   return (
     typeof node === 'object' &&
@@ -18,14 +15,12 @@ export const isVNode = (node: Object) => {
 };
 
 export const render = (vNode: VNode, dom: HTMLElement) => {
-  if (isVue3) {
-    // @ts-ignore
-    const Vue3Render = require('vue-demi').render;
-    return Vue3Render(vNode, dom);
+  if (Demi.isVue3) {
+    return Demi.render(vNode, dom);
   }
-  if (Vue2) {
-    const vm = new Vue2({
-      render: h => h(vNode as any),
+  if (Demi.Vue2) {
+    const vm = new Demi.Vue2({
+      render: (h: any) => h(vNode as any),
     });
     vm.$mount(dom);
   }
